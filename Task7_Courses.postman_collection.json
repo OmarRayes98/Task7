@@ -1,0 +1,585 @@
+{
+	"info": {
+		"_postman_id": "d12398c2-0a22-4cee-aed4-f4f817bb89b9",
+		"name": "Task7_Courses",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31153645",
+		"_collection_link": "https://universal-water-743788.postman.co/workspace/Team-Workspace~a773ab22-8816-47db-831f-c2487fa55940/collection/31153645-d12398c2-0a22-4cee-aed4-f4f817bb89b9?action=share&source=collection_link&creator=31153645"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "add new user (register)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {   \r\n      \"name\": \"omar\",\r\n      \"email\": \"omar@gmail.com\",\r\n      \"age\": 26,\r\n      \"password\":\"123123omar\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/67163e4f2a0b7893a455b08f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"67163e4f2a0b7893a455b08f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"omarrayes19988@gmail.com\",\r\n    \"password\": \"123123omar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"omar\",\r\n    \"email\": \"omarrayes1998@gmail.com\",\r\n    \"age\": 27,\r\n    \"password\": \"123123omar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/67163e4f2a0b7893a455b08f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"67163e4f2a0b7893a455b08f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/67163e4f2a0b7893a455b08f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"67163e4f2a0b7893a455b08f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "courses",
+			"item": [
+				{
+					"name": "get all courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/courses/6717a6403810fce59b67f546",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"courses",
+								"6717a6403810fce59b67f546"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTY2NGM4YTEzNTUyNDVjYWMxOTM1ZSIsImlhdCI6MTcyOTUyMDg0MCwiZXhwIjoxNzMwMTI1NjQwfQ.Zxe7Nzk7fetSR9jZlnZw931gEsY5cNxfcRc8OlfRuVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"course omar\",\r\n    \"description\":\"totootm\",\r\n    \"duration\":\"hh:mm:ss\",\r\n    \"user_id\":\"671664c8a1355245cac1935e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTY2NGM4YTEzNTUyNDVjYWMxOTM1ZSIsImlhdCI6MTcyOTUyMDg0MCwiZXhwIjoxNzMwMTI1NjQwfQ.Zxe7Nzk7fetSR9jZlnZw931gEsY5cNxfcRc8OlfRuVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"course ahmad\",\r\n    \"description\":\"totootm\",\r\n    \"duration\":\"50 ساعة\",\r\n    \"user_id\":\"671664c8a1355245cac1935e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/courses/671672e7315dd36565bbae00",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"courses",
+								"671672e7315dd36565bbae00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/courses/671672e7315dd36565bbae00",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"courses",
+								"671672e7315dd36565bbae00"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "videos",
+			"item": [
+				{
+					"name": "get all videos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/videos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTY2NGM4YTEzNTUyNDVjYWMxOTM1ZSIsImlhdCI6MTcyOTUyMDg0MCwiZXhwIjoxNzMwMTI1NjQwfQ.Zxe7Nzk7fetSR9jZlnZw931gEsY5cNxfcRc8OlfRuVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"video1\",\r\n    \"description\":\"description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/videos/6717a6403810fce59b67f546",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videos",
+								"6717a6403810fce59b67f546"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTY2NGM4YTEzNTUyNDVjYWMxOTM1ZSIsImlhdCI6MTcyOTUyMDg0MCwiZXhwIjoxNzMwMTI1NjQwfQ.Zxe7Nzk7fetSR9jZlnZw931gEsY5cNxfcRc8OlfRuVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"video2\",\r\n    \"description\":\"description2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/videos/6717a6403810fce59b67f546?video_id=6717a64d3810fce59b67f54a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videos",
+								"6717a6403810fce59b67f546"
+							],
+							"query": [
+								{
+									"key": "video_id",
+									"value": "6717a64d3810fce59b67f54a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTY2NGM4YTEzNTUyNDVjYWMxOTM1ZSIsImlhdCI6MTcyOTUyMDg0MCwiZXhwIjoxNzMwMTI1NjQwfQ.Zxe7Nzk7fetSR9jZlnZw931gEsY5cNxfcRc8OlfRuVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/videos/6717a6403810fce59b67f546?video_id=6717a64d3810fce59b67f54a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"videos",
+								"6717a6403810fce59b67f546"
+							],
+							"query": [
+								{
+									"key": "video_id",
+									"value": "6717a64d3810fce59b67f54a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comments",
+			"item": [
+				{
+					"name": "get all comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTY2NGM4YTEzNTUyNDVjYWMxOTM1ZSIsImlhdCI6MTcyOTUyMDg0MCwiZXhwIjoxNzMwMTI1NjQwfQ.Zxe7Nzk7fetSR9jZlnZw931gEsY5cNxfcRc8OlfRuVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n    \"text\":\"comment1\",\r\n    \"user_id\":\"67163e4f2a0b7893a455b08f\",\r\n    \"video_id\":\"6717a64d3810fce59b67f54a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTY2NGM4YTEzNTUyNDVjYWMxOTM1ZSIsImlhdCI6MTcyOTUyMDg0MCwiZXhwIjoxNzMwMTI1NjQwfQ.Zxe7Nzk7fetSR9jZlnZw931gEsY5cNxfcRc8OlfRuVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n    \"text\":\"comment2\",\r\n    \"user_id\":\"67163e4f2a0b7893a455b08f\",\r\n    \"video_id\":\"6717a64d3810fce59b67f54a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/comments/6717c0bc94a47e8965f938d3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comments",
+								"6717c0bc94a47e8965f938d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTY2NGM4YTEzNTUyNDVjYWMxOTM1ZSIsImlhdCI6MTcyOTUyMDg0MCwiZXhwIjoxNzMwMTI1NjQwfQ.Zxe7Nzk7fetSR9jZlnZw931gEsY5cNxfcRc8OlfRuVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/comments/6717c0bc94a47e8965f938d3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comments",
+								"6717c0bc94a47e8965f938d3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
