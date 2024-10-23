@@ -9,7 +9,7 @@ const Course = require('../models/Course');
 //get all videos from database : no need to verify 
 router.get("/", async (req, res) => {
   try {
-    const videos = await Video.find().populate("comments");
+    const videos = await Video.find().populate("comments").populate("course_id");
 
     res.status(200).json({status:200,data:videos});
 
