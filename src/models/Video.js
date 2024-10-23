@@ -23,6 +23,12 @@ const videoSchema = new mongoose.Schema({
     required: true,
   },
 
+  course_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Course",
+    // required: true, ربما لم يتم اختيار الفيديو لاي كورس سينتمي
+  },
+
 }, { timestamps: true });
 
 

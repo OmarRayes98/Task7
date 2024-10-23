@@ -20,22 +20,23 @@ router.get("/", async (req, res) => {
 
 //post new video , need verify jwt
 //id of Course
-router.post("/:id", verifyJWT, async (req, res) => {
+router.post("/", verifyJWT, async (req, res) => {
 
   try {
-    const { id } = req.params;
-    const course = await Course.findById(id);
 
-    if (!course) {
-      return res.status(404).json({status:404, message: "Course not found" });
-    }
 
     const video = new Video(req.body);
 
     await video.save();
 
-    course.videos.push(video)
-    await course.save();
+    const course = await Course.findById( req.body?.course_id);
+
+    if (course) {
+      course.videos.push(video)
+      await course.save();
+    }else{
+      // nothing because course optional in level of Add Video
+    }
 
 
     res.status(201).json({status:201, data:video});
@@ -45,15 +46,13 @@ router.post("/:id", verifyJWT, async (req, res) => {
 });
 
 //put new video , need verify jwt and access 
-//id of Course
+//id of Video
 
-//checkAccessOwner(Course,"video") . Course Model contains user_id (The Owner of course and videos)
 router.put("/:id",verifyJWT,checkAccessOwner(Video,"video"), async (req, res) => {
 
 
   try {
-    const video_id = req.params?.video_id ;
-
+    const video_id = req.params?.id ;
 
 
     const video = await Video.findByIdAndUpdate(
@@ -78,12 +77,8 @@ router.put("/:id",verifyJWT,checkAccessOwner(Video,"video"), async (req, res) =>
 
 router.delete("/:id",verifyJWT,checkAccessOwner(Video,"video"), async (req, res) => {
   try {
-    const video_id = req.params?.video_id ;
+    const video_id = req.params?.id ;
 
-    // Validate video_id
-    // if (!video_id) {
-    //   return res.status(400).send('Invalid video ID');
-    // }
 
     const video = await Video.findByIdAndDelete(video_id);
     if (!video) {
