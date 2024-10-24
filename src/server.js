@@ -1,11 +1,25 @@
 require("dotenv").config();
 const express = require('express');
 const connectDB = require("./config/dbConnection");
+const cors = require('cors');
+var compression = require('compression')
+
 const app = express();
 
 
 // Middleware to parse JSON
 app.use(express.json());
+
+// compress all responses
+app.use(compression({
+  level:6,
+  threshold:100 *1000 // less than 100KB no need to compression
+}));
+
+
+// Enable other domains to access your application
+app.use(cors());
+app.options('*', cors());
 
 // MongoDB Connection
 connectDB();

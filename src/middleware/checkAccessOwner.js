@@ -12,7 +12,9 @@ const checkAccessOwner = (Model,nameModel) => {
         if (!model) {
           return res.status(404).json({ message: `${nameModel} not found` });
         }
-  
+        // Add the model to the request object
+        req.model = model;
+        
         // Check if the user ID matches the user ID associated with the resource
         if (model.user_id.toString() !== userIdFromRequest) {
           console.log("model.user_id.toString()",model.user_id.toString())

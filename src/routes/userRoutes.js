@@ -2,6 +2,8 @@ const express = require("express");
 const User = require("../models/User");
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const Course = require("../models/Course");
+const Video = require("../models/Video");
 
 // Register a new user
 router.post("/register", async (req, res) => {
@@ -120,8 +122,22 @@ router.put("/:id", async (req, res) => {
 // Delete a user by ID (DELETE)
 router.delete("/:id", async (req, res) => {
   try {
+
+    // check if user has any data related like " videos or courses ":
+    const userCourses = await Course.findOne({ user_id: mongoose.Types.ObjectId(req.params.id) });
+    if(userCourses){
+      return res.status(403).json({ message: "User has Courses , insufficient permission \ndelete related courses first then try again" });
+
+    }
+    const userVideos = await Video.findOne({ user_id: mongoose.Types.ObjectId(req.params.id) });
+    if(userVideos){
+      return res.status(403).json({ message: "User has Videos , insufficient permission \ndelete related courses first then try again" });
+
+    }
+    
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) {
+
       return res.status(404).json({ message: "User not found" });
     }
     res.status(200).json({ message: "User deleted successfully" });

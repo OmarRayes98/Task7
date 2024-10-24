@@ -3,6 +3,7 @@ const router = express.Router();
 const Course = require("../models/Course");
 const verifyJWT = require("../middleware/verifyJWT");
 const checkAccessOwner = require("../middleware/checkAccessOwner");
+const Video = require('../models/Video');
 // const validationFormatClass = require('../utils/validationFormat'); // Adjust path as necessary
 
 
@@ -77,10 +78,23 @@ router.put("/:id", verifyJWT,checkAccessOwner(Course,"course"), async (req, res)
 router.delete("/:id",verifyJWT,checkAccessOwner(Course,"course"), async (req, res) => {
   try {
     const course = await Course.findByIdAndDelete(req.params.id);
+
     if (!course) {
       return res.status(404).json({ message: "Course not found" });
     }
-    res.status(200).json({ message: "Course deleted successfully" });
+    // delete the couse_id from database that relate to Video Model : so the Video will not belon to any course any more
+    
+    if(course?.videos.length > 0){
+      await Video.deleteMany({
+        course_id: { $in: course.videos }
+      });
+      res.status(200).json({ message: "Course deleted successfully ,\nwarning the videos were reltated to this course does not have course any more" });
+
+    }else{
+      res.status(200).json({ message: "Course deleted successfully "});
+
+    }
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
